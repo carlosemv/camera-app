@@ -10,7 +10,7 @@ services:
     volumes:
       - captures:/files
     restart: unless-stopped
-  face-filters:
+  camera-app:
     container_name: cam
     image: carlosemv/camera-app
     ports:

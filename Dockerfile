@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER Carlos Vieira "vieiramecarlos@gmail.com"
+LABEL maintainer="vieiramecarlos@gmail.com"
 
 RUN apt-get update -y && apt-get install -y build-essential cmake libsm6 libxext6 libxrender-dev python3 python3-pip python3-dev
 

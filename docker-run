@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run -d --name cam --device /dev/video0 -p 8080:8080 carlosemv/camera-app

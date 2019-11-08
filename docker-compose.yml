@@ -1,0 +1,21 @@
+version: '3'
+volumes:
+  captures:
+services:
+  droppy:
+    container_name: droppy
+    image: silverwind/droppy
+    ports:
+      - '127.0.0.1:8989:8989'
+    volumes:
+      - captures:/files
+    restart: unless-stopped
+  face-filters:
+    container_name: cam
+    image: carlosemv/camera-app
+    ports:
+      - '127.0.0.1:8080:8080'
+    devices:
+      - '/dev/video0'
+    volumes:
+      - captures:/app/static/captures

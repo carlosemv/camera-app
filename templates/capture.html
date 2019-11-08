@@ -1,0 +1,47 @@
+<html>
+  <head>
+  	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <title>Camera App</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <body>
+  	<center>
+      <div id="camera">
+	     <img src="{{ url_for('static', filename=path) }}" alt="capture">
+      </div>
+      <div id="input-hidden">  
+        <form method="post">
+            <legend id="legend">Send image to your email</legend>
+            <input id="email-input" type="email" name="email" placeholder="Email">
+            <button id="send" type="submit">Send</button>
+        </form>
+      </div>
+      {% if email_msg %}
+        <p><strong>{{ email_msg }}</strong></p>
+      {% endif %}
+      <div id="btns-div">
+        <a href="{{ url_for('root') }}">
+          <img src="{{ url_for('static',filename='back.png') }}" alt="go back" class="btn"> 
+        </a>
+        <a href="#" id="email">
+          <img src="{{ url_for('static',filename='mail.png') }}" alt="email picture" class="btn">
+        </a>
+        <a href="{{ url_for('static', filename=path) }}" download>
+          <img src="{{ url_for('static',filename='download.png') }}" alt="save picture" class="btn">
+        </a>
+      </div>
+		</center>
+  </body>
+</html>
+
+<script>
+  $(document).ready(function(){
+
+   $('#email').click(function () {
+      $('#input-hidden').css({'visibility':'visible','display':'block'})
+    });
+ })
+</script>

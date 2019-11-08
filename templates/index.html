@@ -1,0 +1,22 @@
+<html>
+  <head>
+  	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <title>Camera App</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <center>
+      <div id="camera">
+        <img src="{{ url_for('video_feed') }}" alt="video feed">
+      </div>
+      <div id="btns-div">
+        <a href="{{ url_for('capture') }}">
+          <img src="{{ url_for('static',filename='picture.png') }}" alt="take picture" class="btn"> 
+        </a>
+      </div>
+    </center>
+  </body>
+</html>

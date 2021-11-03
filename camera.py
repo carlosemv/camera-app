@@ -7,6 +7,8 @@ class Camera(object):
 
     def __init__(self):
         self.video = cv.VideoCapture(0)
+        if not self.video.isOpened():
+            raise RuntimeError("Unable to open camera device.")
     
     def __del__(self):
         self.video.release()

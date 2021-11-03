@@ -36,8 +36,11 @@ def index():
 def gen(camera):
     while True:
         frame = camera.get_feed()
-        yield (b'--frame\r\n'
+        if frame:
+            yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+        else:
+            raise RuntimeError("No frame captured.")
 
 @app.route('/video_feed/')
 def video_feed():

@@ -16,6 +16,6 @@ services:
     ports:
       - '127.0.0.1:8080:8080'
     devices:
-      - '/dev/video0'
+      - '/dev/video0:/dev/video0'
     volumes:
       - captures:/app/static/captures
